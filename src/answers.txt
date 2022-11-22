@@ -1,0 +1,314 @@
+1.ADD TWO NUMBERS
+const add = (a, b) => a + b;
+console.log(add(3, 4));
+
+2.ADD ANY NUMBER OF NUMBERS
+const add = (...numbers) => numbers.reduce((a, b) => a + b);
+
+const add = (...numbers) => {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum = +numbers[i];
+  }
+  return sum;
+};
+
+3.CHECK IF STRING B IS IN STRING A
+const add = (string1, string2) => string1.includes(string2);
+
+4.REPLACE FIRST AND LAST ELEMENTS OF ARRAY
+const add = (arr) => {
+  arr[0] = "start";
+  arr[arr.length - 1] = "end";
+  return arr;
+};
+
+5.COMBINE ONLY NUMERC VALUES FROM TWO ARRAYS
+const task = (arr1, arr2) =>
+  arr1.concat(arr2).filter((val) => typeof val === "number");
+
+6.RETURN THE LONGEST STRING FROM AN ARRAY
+const task = (arr) => {
+  return arr.reduce((a, b) => {
+    if (a.length > b.length) {
+      return a;
+    } else {
+      return b;
+    }
+  }, "");
+};
+
+const task = (arr) => arr.reduce((a, b) => (a.length > b.length ? a : b), "");
+
+6a. Sort an array
+const test = (arr) => {
+  const newArr = new Float64Array(arr);
+  return Object.values(newArr.sort());
+};
+
+const test = (arr) => {
+  return arr.sort((a,b) => a-b)
+}
+console.log(test([7, 3, 10, 5]));
+
+7. PROCESS FACTORIAL FOR EACH VALUE OF THE ARRAY AND PUT IT IN NEW ARRAY
+const factorial = (n) => {
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result = result * i;
+  }
+  return result;
+};
+
+const task = (arr1, factorial) => {
+  return arr1.map((val) => factorial(val));
+};
+
+8. WRITE THE AGE FUNCTION:
+// - if the age value has not been set, you need to create the following error: "Please, enter your age",
+// - If you set a negative age value, you need to create the following error: "Please, enter positive number",
+// - if a non-numeric value of age was specified, you need to create the following error: "Please, enter number",
+// - if the integer value of age was not specified, you need to create the following error: "Please, enter Integer number",
+// - If the user is under 18, you need to create the following error: "Access denied - you are too young!".
+// If there is no error, the message “Access allowed” is displayed in the console.
+// Message “Age verification complete” should be displayed at the end
+
+const task = (age) => {
+  console.log(age);
+  switch (true) {
+    case age === "" || age === undefined:
+      console.log("Please, enter your age");
+      break;
+    case age < 0:
+      console.log("Please, enter positive number");
+      break;
+    case typeof age !== "number":
+      console.log("Please, enter number");
+      break;
+    case Number.isInteger(age) === false:
+      console.log("Please, enter Integer number");
+      break;
+    case age < 18:
+      console.log("Access denied - you are too young!");
+      break;
+    default:
+      console.log("Access allowed");
+  }
+  console.log("Age verification complete");
+};
+
+9. GREATER/LESS FUNCTION: The function receives an array of integers, a number and a parameter (greater, less). Print a new array, where all elements will be greater/less than this number. By default, the number is 0, the parameter is greater.
+
+const task = (arr, number = 0, param = "greater") => {
+  if (param === "greater") {
+    return arr.filter((val) => val > number);
+  } else if (param === "less") {
+    return arr.filter((val) => val < number);
+  }
+};
+
+10. THE SUM OF LENGTHS OF ANY NUMBER OF STRINGS
+const task = (...strings) =>
+  strings.map((val) => String(val).length).reduce((a, b) => a + b);
+
+11. HOW MANY SECONDS in the number of seconds, minutes, hours, days, weeks, months, years.
+const task = (
+  sec = 0,
+  min = 0,
+  hours = 0,
+  days = 0,
+  weeks = 0,
+  months = 0,
+  years = 0
+) =>
+  sec +
+  min * 60 +
+  hours * 3600 +
+  days * 3600 * 24 +
+  weeks * 3600 * 24 * 7 +
+  months * 3600 * 24 * 30 +
+  years * 3600 * 24 * 30 * 12;
+
+12. MAXIMUM INTERVAL BETWEEN 2 CONSEQUTIVE NUMBERS
+const task = (...array) => {
+  let newArray = [];
+  for (let i = 0; i < array.length - 1; i++) {
+    newArray.push(array[i + 1] - array[i]);
+  }
+  return newArray.reduce((a, b) => (a > b ? a : b));
+};
+
+13. RETURN SMALLEST NUMBER OF ARRAY
+const task = (array) => Math.min(...array);
+const task = (...array) => Math.min(...array);
+const task = (array) => array.reduce((a, b) => (a > b ? b : a));
+
+14. Create a Movie class, the constructor of which accepts 3 parameters: movie name name, movie genre category and start year of startShow. The class has a watchMovie() method that returns a phrase and adds a movie name name parameter to it at the end. For example, "I watch the movie Titanic, which is drama, produced in 1997". 
+
+class Movie {
+  constructor(name, genre, year) {
+    this.name = name;
+    this.genre = genre;
+    this.year = year;
+  }
+  watchMovie() {
+    return (
+      "I watch movie " +
+      this.name +
+      "," +
+      " which is " +
+      this.genre +
+      ", produced in " +
+      this.year
+    );
+  }
+}
+
+const movie1 = new Movie("Titanik", "drama", "2001");
+console.log(movie1.watchMovie());
+
+//10. THE SUM OF LENGTHS OF ANY NUMBER OF STRINGS
+const task = (...str) => {
+  return str.reduce((a, b) => a + b.length, 0);
+};
+
+console.log(task("hi", "hello", "end"));
+
+//20. Function takes array of objects and returns only the property of the "name" key, if it exists
+
+const task = (arr) => {
+  return arr.filter((val) => val.hasOwnProperty("name")).map((val) => val.name);
+};
+
+let newArr = [
+  { id: 1, name: "Vik", age: 25 },
+  { id: 2, age: 25 },
+  { id: 3, name: "Nat", age: 25 }
+];
+
+console.log(task(newArr));
+
+//21. FIZZBUZ
+const task = () => {
+  for (let i = 1; i <= 50; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("FizBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fiz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
+};
+
+const task = () => {
+  for (let i = 1; i <= 50; i++) {
+    let a = i % 3 === 0;
+    let b = i % 5 === 0;
+    a
+      ? b
+        ? console.log("FizBuzz")
+        : console.log("Fiz")
+      : b
+      ? console.log("Buzz")
+      : console.log(i);
+  }
+};
+
+console.log(task());
+
+//21. REVERSE A STRING/WORD
+const task = (str) => str.split(" ").reverse().join(" ");
+
+console.log(task("hello, my name is victor"));
+
+//22. CHECK IF VALUE IS OBJECT/ARRAY
+const task = (str) => typeof str === "object" && !Array.isArray(str);
+
+console.log(task({ id: 1 }));
+
+//23 CHECK IF NUMBER IS INTEGER
+const task = (number) => number - Math.floor(number) === 0;
+
+console.log(task(1.4));
+
+//24. MUL FUNCTION
+const task = (a) => (b) => (c) => a * b * c;
+
+console.log(task(4)(3)(4));
+
+// 25. Write a closure to console log "Hi John" and "Hello John"
+const task = (message) => {
+  const task1 = (name) => {
+    return message + " " + name;
+  };
+  return task1;
+};
+
+let hi = task("Hi");
+let hello = task("hello");
+
+console.log(hi("John"));
+console.log(hello("Viktor"));
+
+
+//20. Write to console with IIFE
+
+(function () {
+  console.log("I am IIFE");
+})();
+
+//21. Use This to apply method from one object to another
+
+const obj1 = {
+  id: 1,
+  getId() {
+    console.log(this.id);
+  }
+};
+
+const obj2 = {
+  id: 4
+};
+
+obj1.getId.apply(obj2);
+
+
+//22. Async await with throw, try, catch, finally
+
+async function test() {
+  try {
+    let data = await fetch("https://api.github.com/userss");
+    let response = await data.json();
+    console.log(response[1].login);
+  } catch (e) {
+    console.log("there is an error ", e);
+  } finally {
+    console.log("completed");
+  }
+}
+
+test();
+
+//25. FIBONACCHI
+
+const test = () => {
+  let current = 0;
+  let prevprev = 0;
+  let prev = 1;
+  console.log(prevprev);
+  console.log(prev);
+
+  while (current <= 50) {
+    current = prev + prevprev;
+    if (current <= 50) {
+      console.log(current);
+    }
+    prevprev = prev;
+    prev = current;
+  }
+};
+
+test();
