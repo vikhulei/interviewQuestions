@@ -1,3 +1,14 @@
+//0-1. Capitalize first letter
+
+const firstLetter = (str) => {
+    let result = str.slice(0,1).toUpperCase().concat(str.slice(1))
+    console.log(result)
+}
+
+firstLetter("Terra Incognita")
+
+//0-2. 
+
 1.ADD TWO NUMBERS
 const add = (a, b) => a + b;
 console.log(add(3, 4));
@@ -111,6 +122,12 @@ const task = (arr, number = 0, param = "greater") => {
 const task = (...strings) =>
   strings.map((val) => String(val).length).reduce((a, b) => a + b);
 
+const task = (...str) => {
+  return str.reduce((a, b) => a + b.length, 0);
+};
+
+console.log(task("hi", "hello", "end"));
+
 11. HOW MANY SECONDS in the number of seconds, minutes, hours, days, weeks, months, years.
 const task = (
   sec = 0,
@@ -167,12 +184,44 @@ class Movie {
 const movie1 = new Movie("Titanik", "drama", "2001");
 console.log(movie1.watchMovie());
 
-//10. THE SUM OF LENGTHS OF ANY NUMBER OF STRINGS
-const task = (...str) => {
-  return str.reduce((a, b) => a + b.length, 0);
-};
+//15. Implement the Student class, the constructor of which accepts 2 parameters fullName - the name and surname of the student, direction - the direction in which he studies.
+// Create a showFullName() method that returns the student's first and last name.
+// Create a nameIncludes(data) method that, using the showFullName() method, checks for the text data argument in the student’s name and returns true if a match is found or false if not found.
+// Create a static studentBuilder() method that returns a new instance of the class named ‘Ihor Kohut’ and the direction ‘qc’.
+// Create a getter and setter direction() to read and specify the direction field.
+// Create an instance of class stud1 named 'Ivan Petrenko' and direction 'web'.
+// Create an instance of class stud2 named 'Sergiy Koval' and direction 'python'.
+// Create an instance of the stud3 class named ‘Ihor Kohut’ and the direction ‘qc’ using the static studentBuilder() method.
 
-console.log(task("hi", "hello", "end"));
+// class Student {
+//   constructor(fullName, direction) {
+//     this.fullName = fullName;
+//     this.direction = direction;
+//   }
+//   showFullName() {
+//     return this.fullName;
+//   }
+//   nameIncludes(data) {
+//     return this.fullName.includes(data);
+//   }
+// }
+
+//16. Write a mapCreator(keys, values) function that takes two arrays of equal length. Using these arrays, the function must create an object of type Map, the keys of which are the values from the first array keys, and the values of Map - the values from the second array values. Moreover, the values of the map elements can be only string values. The function returns this Map object.
+
+//17. Implement the getPromise(delay, message) function, which takes an integer number delay  (between 0 and 2000) and string message and returns a Promise that waits for specified amount of time (using delay argument) and resolves with the message.
+
+//18. Write an add(x, y) function that takes two arguments x and y. The function should return a Promise that resolves with the sum of the two arguments if they are Numbers, or rejects with the message "Error!" otherwise.
+
+//19. Implement the take() function that converts a sequence of iterated values into a sequence of length n.
+// Example usage:
+// const arr = ['a', 'b', 'c', 'd'];
+// for (const x of take(2, arr)) {
+// console.log(x);
+// }
+// Output:
+// a
+// b
+
 
 //20. Function takes array of objects and returns only the property of the "name" key, if it exists
 
@@ -219,27 +268,27 @@ const task = () => {
 
 console.log(task());
 
-//21. REVERSE A STRING/WORD
+//22. REVERSE A STRING/WORD
 const task = (str) => str.split(" ").reverse().join(" ");
 
 console.log(task("hello, my name is victor"));
 
-//22. CHECK IF VALUE IS OBJECT/ARRAY
+//23. CHECK IF VALUE IS OBJECT/ARRAY
 const task = (str) => typeof str === "object" && !Array.isArray(str);
 
 console.log(task({ id: 1 }));
 
-//23 CHECK IF NUMBER IS INTEGER
+//24. CHECK IF NUMBER IS INTEGER
 const task = (number) => number - Math.floor(number) === 0;
 
 console.log(task(1.4));
 
-//24. MUL FUNCTION
+//25. MUL FUNCTION
 const task = (a) => (b) => (c) => a * b * c;
 
 console.log(task(4)(3)(4));
 
-// 25. Write a closure to console log "Hi John" and "Hello John"
+// 26. Write a closure to console log "Hi John" and "Hello John"
 const task = (message) => {
   const task1 = (name) => {
     return message + " " + name;
@@ -254,45 +303,7 @@ console.log(hi("John"));
 console.log(hello("Viktor"));
 
 
-//20. Write to console with IIFE
-
-(function () {
-  console.log("I am IIFE");
-})();
-
-//21. Use This to apply method from one object to another
-
-const obj1 = {
-  id: 1,
-  getId() {
-    console.log(this.id);
-  }
-};
-
-const obj2 = {
-  id: 4
-};
-
-obj1.getId.apply(obj2);
-
-
-//22. Async await with throw, try, catch, finally
-
-async function test() {
-  try {
-    let data = await fetch("https://api.github.com/userss");
-    let response = await data.json();
-    console.log(response[1].login);
-  } catch (e) {
-    console.log("there is an error ", e);
-  } finally {
-    console.log("completed");
-  }
-}
-
-test();
-
-//25. FIBONACCHI
+//27. FIBONACCHI
 
 const test = () => {
   let current = 0;
@@ -312,3 +323,57 @@ const test = () => {
 };
 
 test();
+
+
+//28. Write to console with IIFE
+
+(function () {
+  console.log("I am IIFE");
+})();
+
+
+//29. Use This to apply method from one object to another
+
+const obj1 = {
+  id: 1,
+  getId() {
+    console.log(this.id);
+  }
+};
+
+const obj2 = {
+  id: 4
+};
+
+obj1.getId.apply(obj2);
+
+
+//30. Async await with throw, try, catch, finally
+
+async function test() {
+  try {
+    let data = await fetch("https://api.github.com/userss");
+    let response = await data.json();
+    console.log(response[1].login);
+  } catch (e) {
+    console.log("there is an error ", e);
+  } finally {
+    console.log("completed");
+  }
+}
+
+test();
+
+
+
+
+----------------
+
+// let fruit = "oranges";
+
+// const logFruit = {
+//   oranges: "hello",
+//   apples: () => console.log("apples")
+// };
+
+// logFruit["oranges"];
