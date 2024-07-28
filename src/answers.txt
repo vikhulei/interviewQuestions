@@ -57,10 +57,30 @@ const test = (arr) => {
   return Object.values(newArr.sort());
 };
 
+only numbers
 const test = (arr) => {
   return arr.sort((a,b) => a-b)
 }
 console.log(test([7, 3, 10, 5]));
+
+only text
+arr.sort((a,b) => a.localeCompare(b))
+
+all types
+arr.sort((a,b) => {
+        if (a<b) {return -1}
+        if (a>b) {return 1}
+        return 0
+    })
+
+74, 18, 10, 5
+
+18, 10, 5, 74
+
+10, 5, 18, 74
+
+5, 10, 18, 74
+
 
 7. PROCESS FACTORIAL FOR EACH VALUE OF THE ARRAY AND PUT IT IN NEW ARRAY
 const factorial = (n) => {
@@ -146,7 +166,7 @@ const task = (
   months * 3600 * 24 * 30 +
   years * 3600 * 24 * 30 * 12;
 
-12. MAXIMUM INTERVAL BETWEEN 2 CONSEQUTIVE NUMBERS
+12. RETURN MAXIMUM INTERVAL BETWEEN 2 CONSEQUTIVE NUMBERS IN A SINGLE ARRAY OF NUMBERS
 const task = (...array) => {
   let newArray = [];
   for (let i = 0; i < array.length - 1; i++) {
@@ -204,6 +224,15 @@ console.log(movie1.watchMovie());
 //   nameIncludes(data) {
 //     return this.fullName.includes(data);
 //   }
+    static studentBuilder() {
+        return "Ihor Kohut, qc"
+    }
+    get direct() {
+        return this.direction
+    }
+    set direct(dir) {
+        this.direction = dir
+    }
 // }
 
 //16. Write a mapCreator(keys, values) function that takes two arrays of equal length. Using these arrays, the function must create an object of type Map, the keys of which are the values from the first array keys, and the values of Map - the values from the second array values. Moreover, the values of the map elements can be only string values. The function returns this Map object.

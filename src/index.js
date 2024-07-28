@@ -12,12 +12,10 @@
 
 //5.COMBINE ONLY NUMBERIC VALUES FROM TWO ARRAYS
 
-
 //6.RETURN THE LONGEST STRING FROM AN ARRAY
 
-
-
 //6a. Sort an array
+
 
 //7. PROCESS FACTORIAL FOR EACH VALUE OF THE ARRAY AND PUT IT IN NEW ARRAY
 
@@ -30,15 +28,18 @@
 // If there is no error, the message “Access allowed” is displayed in the console.
 // Message “Age verification complete” should be displayed at the end
 
+
 //9. The function receives an array of integers, a number and a parameter (greater, less). Print a new array, where all elements will be greater/less than this number. By default, the number is 0, the parameter is greater.
 
 //10. THE SUM OF LENGTHS OF ANY NUMBER OF STRINGS
 
 //11. HOW MANY SECONDS in the number of seconds, minutes, hours, days, weeks, months, years
 
-//12. MAXIMUM INTERVAL BETWEEN 2 CONSEQUTIVE NUMBERS
+//12. RETURN MAXIMUM INTERVAL BETWEEN 2 CONSEQUTIVE NUMBERS IN A SINGLE ARRAY OF NUMBERS
 
 //13. RETURN SMALLEST NUMBER OF ARRAY
+
+// const smallestNumber = (arr) => arr.reduce((acc, el) => acc > el ? el : acc)
 
 //14. Create a Movie class, the constructor of which accepts 3 parameters: movie name name, movie genre category and start year of startShow. The class has a watchMovie() method that returns a phrase and adds a movie name name parameter to it at the end. For example, "I watch the movie Titanic, which is drama, produced in 1997".
 
@@ -52,6 +53,30 @@
 // Create an instance of the stud3 class named ‘Ihor Kohut’ and the direction ‘qc’ using the static studentBuilder() method.
 
 //16. Write a mapCreator(keys, values) function that takes two arrays of equal length. Using these arrays, the function must create an object of type Map, the keys of which are the values from the first array keys, and the values of Map - the values from the second array values. Moreover, the values of the map elements can be only string values. The function returns this Map object.
+
+const mapCreator = (arr1, arr2) => {
+
+}
+
+let a = [1, 2, 3, 4];
+let b = ["ram", "shyam", "sita", "gita"]
+
+// Checking if the array lengths are same 
+// and none of the array is empty
+function convertToObj(a, b) {
+    if (a.length != b.length || 
+        a.length == 0 || 
+        b.length == 0) {
+        return null;
+    }
+    let obj = {};
+
+    // Using the foreach method
+    a.forEach((k, i) => 
+              { obj[k] = b[i] })
+    return obj;
+}
+console.log(convertToObj(a, b))
 
 //17. Implement the getPromise(delay, message) function, which takes an integer number delay  (between 0 and 2000) and string message and returns a Promise that waits for specified amount of time (using delay argument) and resolves with the message.
 
